@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WLTRACKING MOBILE</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_text_1">Clientes</string>
+    <string name="tab_text_2">Veíuclos</string>
+    <string name="tab_text_3">Rastreadores</string>
+    <string name="tab_text_4">Chips</string>
+</resources>
