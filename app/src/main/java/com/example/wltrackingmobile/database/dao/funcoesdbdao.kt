@@ -6,6 +6,10 @@ import com.example.wltrackingmobile.model.chips
 import com.example.wltrackingmobile.model.clientes
 import com.example.wltrackingmobile.model.rastreadores
 import com.example.wltrackingmobile.model.veiculos
+import androidx.room.Dao
+
+
+
 
 @Dao
 interface funcoesdbdao {
@@ -52,6 +56,9 @@ interface funcoesdbdao {
 
     @Update
     fun atualizachips(vararg Chips: chips)
+
+    @Query("DELETE FROM chips")
+    fun nukeTable()
 
     @Query("SELECT * FROM rastreadores")
     fun buscaTodosrastreadores() :List<rastreadores>

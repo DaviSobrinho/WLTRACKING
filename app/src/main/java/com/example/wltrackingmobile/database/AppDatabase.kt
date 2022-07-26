@@ -20,7 +20,7 @@ abstract class AppDatabase : RoomDatabase(){
                 return Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
-                    "gpsafe_for_galaxym52.db"
+                    "wltrackingmobile.db"
                 ).allowMainThreadQueries()
                     .build()
             }

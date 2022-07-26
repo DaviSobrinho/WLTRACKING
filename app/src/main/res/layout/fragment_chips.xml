@@ -3,70 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ChipsFragment">
 
-    <RelativeLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/frament_chips_recyclerView"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
-        <TextView
-            android:id="@+id/Fragment_chips_Imei"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:text="Chip"
-            android:textColor="@color/black"
-            android:clickable="true"
-            android:textSize="24sp"/>
-        <TextView
-            android:id="@+id/Fragment_chips_Estado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/Fragment_chips_Imei"
-            android:text="Chips"
-            android:clickable="true"
-            android:textColor="@color/black"
-            android:textSize="24sp"/>
-        <TextView
-            android:id="@+id/Fragment_chips_Modelo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:layout_toRightOf="@id/Fragment_chips_Estado"
-            android:text="Chips"
-            android:textColor="@color/black"
-            android:textSize="24sp"/>
-        <TextView
-            android:id="@+id/Fragment_chips_Telefone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:layout_below="@id/Fragment_chips_Imei"
-            android:text="Chips"
-            android:textColor="@color/black"
-            android:textSize="24sp"/>
-        <TextView
-            android:id="@+id/Fragment_chips_Custo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:layout_below="@id/Fragment_chips_Estado"
-            android:layout_toRightOf="@id/Fragment_chips_Telefone"
-            android:text="Chips"
-            android:textColor="@color/black"
-            android:textSize="24sp"/>
-        <TextView
-            android:id="@+id/Fragment_chips_Dia"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:layout_below="@id/Fragment_chips_Modelo"
-            android:layout_toRightOf="@id/Fragment_chips_Custo"
-            android:text="Chips"
-            android:textColor="@color/black"
-            android:textSize="24sp"/>
-    </RelativeLayout>
-
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/fragment_chips"/>
 </FrameLayout>
