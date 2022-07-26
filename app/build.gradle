@@ -32,10 +32,13 @@ android {
 }
 
 dependencies {
-
+    apply plugin: 'kotlin-kapt'
 
     implementation("androidx.room:room-runtime:2.4.2")
     annotationProcessor("androidx.room:room-compiler:2.4.2")
+
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:2.4.2")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'

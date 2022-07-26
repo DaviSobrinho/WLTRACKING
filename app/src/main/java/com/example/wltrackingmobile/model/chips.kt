@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey
 class chips(
     @PrimaryKey val imei: String,
     val id: Long = 0L,
-    val estado: String,
-    val modelo: String,
-    val telefone: String,
-    val custo: String,
-    val dia: String,
+    val estado: String = "1",
+    val modelo: String = "1",
+    val telefone: String = "1",
+    val custo: String = "1",
+    val dia: String = "1",
 )
