@@ -1,7 +1,6 @@
-/*package com.example.wltrackingmobile.adapters
+package com.example.wltrackingmobile.adapters
 
 import android.content.Context
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,45 +8,38 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wltrackingmobile.R
 import com.example.wltrackingmobile.model.chips
+import com.example.wltrackingmobile.model.clientes
+import com.example.wltrackingmobile.model.rastreadores
+import com.example.wltrackingmobile.model.veiculos
 
-class activitymainveiculosadapter (
+class activitymainveiculosadapter (private val context: Context, veiculos: List<veiculos> = emptyList(), ) :
+    RecyclerView.Adapter<activitymainveiculosadapter.ViewHolder>() {
 
-    private val context: Context,
-    chips: List<chips> = emptyList(),
-
-    ) : RecyclerView.Adapter<activitymainchipsadapter.ViewHolder>() {
-
-    private val chips = chips.toMutableList()
+    private val veiculos = veiculos.toMutableList()
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun vincula(chips: chips) {
-            val imei = itemView.findViewById<TextView>(R.id.Fragment_chips_Imei)
-            imei.text = Editable.Factory.getInstance().newEditable(chips.imei)
-            val estado = itemView.findViewById<TextView>(R.id.Fragment_chips_Estado)
-            estado.text = Editable.Factory.getInstance().newEditable(chips.estado)
-            val modelo = itemView.findViewById<TextView>(R.id.Fragment_chips_Modelo)
-            modelo.text = Editable.Factory.getInstance().newEditable(chips.modelo)
-            val telefone = itemView.findViewById<TextView>(R.id.Fragment_chips_Telefone)
-            telefone.text = Editable.Factory.getInstance().newEditable(chips.telefone)
-            val custo = itemView.findViewById<TextView>(R.id.Fragment_chips_Custo)
-            custo.text = Editable.Factory.getInstance().newEditable(chips.custo)
-            val dia = itemView.findViewById<TextView>(R.id.Fragment_chips_Dia)
-            dia.text = Editable.Factory.getInstance().newEditable(chips.dia)
+        fun vincula(veiculos: veiculos) {
+            val placa = itemView.findViewById<TextView>(R.id.Fragment_veiculos_placa)
+            placa.text = (veiculos.placa)
+            val modelo = itemView.findViewById<TextView>(R.id.Fragment_rastreadores_Modelo)
+            modelo.text = (veiculos.modelo)
+            val ano = itemView.findViewById<TextView>(R.id.Fragment_rastreadores_estado)
+            ano.text = (veiculos.ano)
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.fragment_chips, parent, false)
+        val view = inflater.inflate(R.layout.fragment_veiculos_recyclerviewcontent, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val chips = chips[position]
-        holder.vincula(chips)
+        val veiculos = veiculos[position]
+        holder.vincula(veiculos)
     }
-    override fun getItemCount(): Int = chips.size
-    fun atualiza(chips: List<chips>) {
-        this.chips.clear()
-        this.chips.addAll(chips)
+    override fun getItemCount(): Int = veiculos.size
+    fun atualiza(rastreadores: List<veiculos>) {
+        this.veiculos.clear()
+        this.veiculos.addAll(veiculos)
         notifyDataSetChanged()
     }
-}*/
+}

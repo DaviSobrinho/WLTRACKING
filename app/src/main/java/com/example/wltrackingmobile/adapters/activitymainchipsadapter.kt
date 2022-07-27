@@ -1,11 +1,9 @@
 package com.example.wltrackingmobile.adapters
 
 import android.content.Context
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wltrackingmobile.R
@@ -34,7 +32,7 @@ class activitymainchipsadapter (private val context: Context, chips: List<chips>
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.fragment_chips2, parent, false)
+        val view = inflater.inflate(R.layout.fragment_chips_recyclerviewcontent, parent, false)
         return ViewHolder(view)
     }
 

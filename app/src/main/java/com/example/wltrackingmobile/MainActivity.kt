@@ -3,6 +3,7 @@ package com.example.wltrackingmobile
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -15,7 +16,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.textfield.TextInputLayout
 
-class MainActivity : AppCompatActivity(){
+public class MainActivity : AppCompatActivity(){
 
     val adapter = activitymainchipsadapter(context = this)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity(){
                 0 ->{
                     tab.text="Cliente"
                     tab.setIcon(R.drawable.ic_action_cliente)
+
                 }
                 1 ->{
                     tab.text="Veículo"
@@ -49,9 +51,10 @@ class MainActivity : AppCompatActivity(){
                 }
             }
         }.attach()
-
         criaChip()
         nukechip()
+        configuratablayoutchange()
+
     }
         override fun onResume() {
             super.onResume()
@@ -87,7 +90,6 @@ class MainActivity : AppCompatActivity(){
             val toast = Toast.makeText(applicationContext, text, duration)
             toast.show()
 
-            configuraRecyclerView()
         }
     }
     private fun nukechip(){
@@ -96,7 +98,6 @@ class MainActivity : AppCompatActivity(){
         botaoatualizar.setOnClickListener{
             val chipsatualizadao = dbn.funcoesdbdao()
             chipsatualizadao.nukeTable()
-            configuraRecyclerView()
         }
     }
 
@@ -104,5 +105,13 @@ class MainActivity : AppCompatActivity(){
         val recyclerView = findViewById<RecyclerView>(R.id.frament_chips_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+    }
+    private fun configuratablayoutchange(){
+        val tablayoutchange = findViewById<TabLayout>(R.id.ActivityMainTabLayout)
+        tablayoutchange.setOnClickListener{
+            if(tablayoutchange.selectedTabPosition == 3) {
+                configuraRecyclerView()
+            }
+        }
     }
 }
