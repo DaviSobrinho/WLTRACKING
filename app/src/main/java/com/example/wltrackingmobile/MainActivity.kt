@@ -1,6 +1,7 @@
 package com.example.wltrackingmobile
 
-import android.icu.text.Transliterator
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,9 +17,9 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.textfield.TextInputLayout
 
-public class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity(){
 
-    val adapter = activitymainchipsadapter(context = this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,11 +29,6 @@ public class MainActivity : AppCompatActivity(){
         val adapter = AdapterTabPager(supportFragmentManager, lifecycle)
 
         viewPager2.adapter = adapter
-
-
-
-
-
 
 
         TabLayoutMediator(tabLayout, viewPager2){ tab, position->
@@ -56,17 +52,32 @@ public class MainActivity : AppCompatActivity(){
                 }
             }
         }.attach()
-        tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
-            override fun onTabSelected(tab: TabLayout.Tab){
-                title = tab.text
-                if (tab.text == "Chip"){
-                    configuraRecyclerView()
-
-                }
+        viewPager2?.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
 
             }
+            override fun onPageScrollStateChanged(state: Int) {
+                super.onPageScrollStateChanged(state)
+            }
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+                if(position == 3) {
+                    val text = "O chip foi adicionado!"
+                    val duration = Toast.LENGTH_SHORT
+                    val toast = Toast.makeText(applicationContext, text, duration)
+                    toast.show()
+                    val recyclerviewchips = findViewById<RecyclerView>(R.id.frament_chips_recyclerView)
+                    if (recyclerviewchips != null) {
+                        configuraRecyclerView()
+                    }
+                }
+            }
+        })
+        tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+            override fun onTabSelected(tab: TabLayout.Tab){
+            }
             override fun onTabUnselected(tab: TabLayout.Tab){
-
             }
             override fun onTabReselected(tab: TabLayout.Tab){
             }
@@ -78,16 +89,11 @@ public class MainActivity : AppCompatActivity(){
 
         criaChip()
         nukechip()
-        onTabSelected(tabLayout)
-//        configuratablayoutchange()
+        startAddActivity()
 
     }
     override fun onResume() {
         super.onResume()
-        val db = AppDatabase.instancia(this)
-        val chips = db.funcoesdbdao()
-        adapter.atualiza(chips.buscaTodoschips())
-
 
     }
     private fun criaChip() {
@@ -125,19 +131,22 @@ public class MainActivity : AppCompatActivity(){
             chipsatualizadao.nukeTable()
         }
     }
+    private fun startAddActivity(){
+        val botaoinciaaddactivity = findViewById<FloatingActionButton>(R.id.excluir)
+        botaoinciaaddactivity.setOnClickListener{
+            val intent = Intent(this, AddActivity::class.java)
+            val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+            startActivity(intent, bundle)
+        }
+    }
     fun configuraRecyclerView() {
+        val adapter = activitymainchipsadapter(context = this)
+        val db = AppDatabase.instancia(this)
+        val chips = db.funcoesdbdao()
+        adapter.atualiza(chips.buscaTodoschips())
         val recyclerView = findViewById<RecyclerView>(R.id.frament_chips_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
     }
-    private fun onTabSelected(tabLayout: TabLayout){
-       val tabposition = tabLayout.selectedTabPosition
-       val text = "Teste $tabposition!"
-       val duration = Toast.LENGTH_SHORT
-       val toast = Toast.makeText(applicationContext, text, duration)
 
-       if (tabposition == 4){
-           toast.show()
-       }
-    }
 }
