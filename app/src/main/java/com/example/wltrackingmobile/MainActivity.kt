@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        title ="Página Inicial"
 
         val tabLayout = findViewById<TabLayout>(R.id.ActivityMainTabLayout)
         val viewPager2 = findViewById<ViewPager2>(R.id.ActivityMainViewPager)

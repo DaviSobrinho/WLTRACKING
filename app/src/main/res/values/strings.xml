@@ -6,4 +6,11 @@
     <string name="tab_text_2">Veíuclos</string>
     <string name="tab_text_3">Rastreadores</string>
     <string name="tab_text_4">Chips</string>
+    <string name="Hint1">Nome:</string>
+    <string name="Hint2">CPF:</string>
+    <string name="Hint3">Telefone:</string>
+    <string name="Hint4">Dia da mensalidade:</string>
+    <string name="Hint5">Valor da mensalidade:</string>
+    <string name="Hint6">Vencimento do contrato:</string>
+    <string name="Hint7">Notas:</string>
 </resources>
