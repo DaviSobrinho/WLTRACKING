@@ -3,182 +3,200 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <Button
-        android:id="@+id/ActivityAddButtonClientes"
-        android:layout_width="170dp"
+        android:id="@+id/ActivityAddClienteButtonClientes"
+        android:layout_width="180dp"
         android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
         android:textColor="@color/white"
-        android:textSize="11sp"
+        android:textSize="14sp"
         android:textAlignment="center"
         android:text="Cliente"
         android:src="@drawable/ic_action_cliente"
         >
     </Button>
     <Button
-        android:id="@+id/ActivityAddButtonVeiculos"
-        android:layout_width="170dp"
+        android:id="@+id/ActivityAddClienteButtonVeiculos"
+        android:layout_width="180dp"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="14dp"
         android:textColor="@color/white"
-        android:textSize="11sp"
+        android:textSize="14sp"
         android:textAlignment="center"
         android:text="Veículo"
         android:src="@drawable/ic_action_cliente"
         >
     </Button>
     <Button
-        android:id="@+id/ActivityAddButtonRastreadores"
-        android:layout_width="170dp"
+        android:id="@+id/ActivityAddClienteButtonRastreadores"
+        android:layout_width="180dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="@id/ActivityAddButtonClientes"
-        app:layout_constraintTop_toBottomOf="@id/ActivityAddButtonClientes"
+        app:layout_constraintStart_toStartOf="@id/ActivityAddClienteButtonClientes"
+        app:layout_constraintTop_toBottomOf="@id/ActivityAddClienteButtonClientes"
         android:layout_marginTop="10dp"
         android:textColor="@color/white"
-        android:textSize="11sp"
+        android:textSize="14sp"
         android:textAlignment="center"
         android:text="Rastreador"
         android:src="@drawable/ic_action_cliente"
         >
     </Button>
     <Button
-        android:id="@+id/ActivityAddButtonChips"
-        android:layout_width="170dp"
+        android:id="@+id/ActivityAddClienteButtonChips"
+        android:layout_width="180dp"
         android:layout_height="50dp"
-        app:layout_constraintStart_toStartOf="@id/ActivityAddButtonVeiculos"
-        app:layout_constraintTop_toBottomOf="@id/ActivityAddButtonVeiculos"
+        app:layout_constraintStart_toStartOf="@id/ActivityAddClienteButtonVeiculos"
+        app:layout_constraintTop_toBottomOf="@id/ActivityAddClienteButtonVeiculos"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
         android:textColor="@color/white"
-        android:textSize="10sp"
+        android:textSize="14sp"
         android:textAlignment="center"
         android:text="Chip"
         android:src="@drawable/ic_action_cliente"
         >
     </Button>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ActivityAddTextInputLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
+    <ScrollView
         android:layout_marginTop="130dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/ActivityAddTextInput1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="@string/Hint1"
-        android:inputType="text" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ActivityAddTextInputLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ActivityAddTextInputLayout1">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ActivityAddTextInput2"
+        android:layout_marginBottom="16dp">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/Hint2"
-            android:inputType="number"
-            android:digits="1234567890-. "/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ActivityAddTextInputLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ActivityAddTextInputLayout2">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ActivityAddTextInput3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/Hint3"
-            android:inputType="number"
-            android:digits="1234567890-() "/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ActivityAddClienteTextInputLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ActivityAddClienteTextInput1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/Hint1"
+                    android:inputType="text" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ActivityAddTextInputLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ActivityAddTextInputLayout3">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ActivityAddTextInput4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/Hint4"
-            android:inputType="number"
-            android:digits="1234567890"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ActivityAddClienteTextInputLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ActivityClienteAddTextInput2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/Hint2"
+                    android:inputType="number"
+                    android:digits="1234567890-. "/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ActivityAddClienteTextInputLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ActivityAddTextInput3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/Hint3"
+                    android:inputType="number"
+                    android:digits="1234567890-() "/>
 
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ActivityAddTextInputLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ActivityAddTextInputLayout4">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ActivityAddTextInput5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/Hint5"
-            android:inputType="number"
-            android:digits="1234567890,.$"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ActivityAddTextInputLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ActivityAddClienteTextInput4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/Hint4"
+                    android:inputType="number"
+                    android:digits="1234567890"/>
 
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ActivityAddClienteTextInputLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ActivityAddClienteTextInput5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/Hint5"
+                    android:inputType="number"
+                    android:digits="1234567890,.$"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="false"
+                android:textSize="16sp"
+                android:text="Data de vencimento do contrato:">
 
-    </com.google.android.material.textfield.TextInputLayout>
-    <CalendarView
-        android:id="@+id/ActivityAddTextInputLayout6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ActivityAddTextInputLayout5">
+            </Button>
+            <CalendarView
+                android:id="@+id/ActivityAddClienteCalendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
 
-    </CalendarView>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ActivityAddTextInputLayout7"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ActivityAddTextInputLayout6">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/ActivityAddTextInput7"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/Hint7"/>
+            </CalendarView>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ActivityAddClienteTextInputLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ActivityAddTextInput7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/Hint7"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/ActivityAddClienteButtonConfirmar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="false"
+                android:backgroundTint="#15CD00"
+                android:textSize="20sp"
+                android:text="CONFIRMAR">
 
+            </Button>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

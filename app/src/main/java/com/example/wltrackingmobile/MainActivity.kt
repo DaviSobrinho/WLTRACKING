@@ -135,7 +135,7 @@ class MainActivity : AppCompatActivity(){
     private fun startAddActivity(){
         val botaoinciaaddactivity = findViewById<FloatingActionButton>(R.id.excluir)
         botaoinciaaddactivity.setOnClickListener{
-            val intent = Intent(this, AddActivity::class.java)
+            val intent = Intent(this, AddActivityCliente::class.java)
             val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
             startActivity(intent, bundle)
         }
