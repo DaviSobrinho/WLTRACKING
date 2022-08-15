@@ -3,6 +3,8 @@ package com.example.wltrackingmobile
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.transition.TransitionManager
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +20,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity(){
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,47 +84,13 @@ class MainActivity : AppCompatActivity(){
             override fun onTabReselected(tab: TabLayout.Tab){
             }
         })
-
-
-
-
-
-        criaChip()
         nukechip()
         startAddActivity()
-
     }
     override fun onResume() {
         super.onResume()
-
     }
-    private fun criaChip() {
-        val db = AppDatabase.instancia(this)
 
-        val botaoadicionar = findViewById<FloatingActionButton>(R.id.adicionar)
-        botaoadicionar.setOnClickListener {
-
-            val addimei = findViewById<TextInputLayout>(R.id.pesquisar)
-            val imei: String = addimei.editText?.text.toString()
-
-
-            val chipsDao = db.funcoesdbdao()
-            chipsDao.salva(
-                chips(
-                    imei = imei,
-                    estado = "estado",
-                    telefone = "telefone",
-                    dia = "data",
-                    custo = "valor",
-                    modelo = "contrato",
-                )
-            )
-            val text = "O chip foi adicionado!"
-            val duration = Toast.LENGTH_SHORT
-            val toast = Toast.makeText(applicationContext, text, duration)
-            toast.show()
-        }
-    }
     private fun nukechip(){
         val dbn = AppDatabase.instancia(this)
         val botaoatualizar = findViewById<FloatingActionButton>(R.id.atualizar)
@@ -135,7 +102,7 @@ class MainActivity : AppCompatActivity(){
     private fun startAddActivity(){
         val botaoinciaaddactivity = findViewById<FloatingActionButton>(R.id.excluir)
         botaoinciaaddactivity.setOnClickListener{
-            val intent = Intent(this, AddActivity::class.java)
+            val intent = Intent(this, AddActivityCliente::class.java)
             val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
             startActivity(intent, bundle)
         }
@@ -149,5 +116,8 @@ class MainActivity : AppCompatActivity(){
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
     }
-
+    fun startMainActivity(){
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+    }
 }
