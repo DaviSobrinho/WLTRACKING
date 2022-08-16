@@ -1,16 +1,20 @@
 package com.example.wltrackingmobile
 
 import android.app.ActivityOptions
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
+import android.widget.CompoundButton
+import android.widget.CompoundButton.OnCheckedChangeListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.wltrackingmobile.database.AppDatabase
 import com.example.wltrackingmobile.model.chips
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
+
 
 class AddActivityChip : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +23,7 @@ class AddActivityChip : AppCompatActivity() {
         title = "Adicionar"
         startAddActivities()
         criaChip()
+        configuracheckbox()
     }
     override fun onBackPressed() {
         super.onBackPressed()
@@ -49,21 +54,64 @@ class AddActivityChip : AppCompatActivity() {
             startActivity(intent, bundle)
         }
     }
-    private fun criaChip() {
+    fun criaChip() {
         val db = AppDatabase.instancia(this)
+        val checkativado = findViewById<CompoundButton>(R.id.ActivityAddChipCheckBox1)
+        val checkdesativado = findViewById<CheckBox>(R.id.ActivityAddChipCheckBox2)
+        val checkmanutencao = findViewById<CheckBox>(R.id.ActivityAddChipCheckBox3)
+        var estado : String = ""
+        checkativado.setOnCheckedChangeListener{ buttonView, isChecked ->
+            if( isChecked){
+                checkdesativado.isChecked = false
+                checkmanutencao.isChecked = false
+                estado = "Ativado"
+                title = estado
+            }else{
+                estado =""
+            }
+        }
+        checkdesativado.setOnCheckedChangeListener{ buttonView, isChecked ->
+            if( isChecked){
+                checkativado.isChecked = false
+                checkmanutencao.isChecked = false
+                estado = "Desativado"
+                title = estado
+            }else{
+                estado =""
+            }
+        }
+        checkmanutencao.setOnCheckedChangeListener{ buttonView, isChecked ->
+            if( isChecked){
+                checkdesativado.isChecked = false
+                checkativado.isChecked = false
+                estado = "Manutenção"
+                title = estado
+            }else{
+                estado =""
+            }
+        }
         val botaoadicionar = findViewById<Button>(R.id.ActivityAddChipButtonConfirmar)
+
         botaoadicionar.setOnClickListener {
             val addimei = findViewById<TextInputEditText>(R.id.ActivityAddChipTextInput1)
             val imei: String = addimei.text.toString()
+            val addmodelo = findViewById<TextInputEditText>(R.id.ActivityAddChipTextInput2)
+            val modelo: String = addmodelo.text.toString()
+            val addtelefone = findViewById<TextInputEditText>(R.id.ActivityAddChipTextInput3)
+            val telefone: String = addtelefone.text.toString()
+            val adddia = findViewById<TextInputEditText>(R.id.ActivityAddChipTextInput4)
+            val dia: String = adddia.text.toString()
+            val addcusto = findViewById<TextInputEditText>(R.id.ActivityAddChipTextInput5)
+            val custo: String = addcusto.text.toString()
             val chipsDao = db.funcoesdbdao()
             chipsDao.salva(
                 chips(
                     imei = imei,
-                    estado = "estado",
-                    telefone = "telefone",
-                    dia = "data",
-                    custo = "valor",
-                    modelo = "contrato",
+                    estado = estado,
+                    telefone = telefone,
+                    dia = dia,
+                    custo = custo,
+                    modelo = modelo,
                 )
             )
             val text = "O chip foi adicionado!"
@@ -76,5 +124,8 @@ class AddActivityChip : AppCompatActivity() {
         val intent = Intent(applicationContext, MainActivity::class.java)
         val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
         startActivity(intent, bundle)
+    }
+    fun configuracheckbox(){
+
     }
 }

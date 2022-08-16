@@ -7,9 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wltrackingmobile.R
-import com.example.wltrackingmobile.model.chips
-import com.example.wltrackingmobile.model.clientes
-import com.example.wltrackingmobile.model.rastreadores
 import com.example.wltrackingmobile.model.veiculos
 
 class activitymainveiculosadapter (private val context: Context, veiculos: List<veiculos> = emptyList(), ) :
@@ -37,7 +34,7 @@ class activitymainveiculosadapter (private val context: Context, veiculos: List<
         holder.vincula(veiculos)
     }
     override fun getItemCount(): Int = veiculos.size
-    fun atualiza(rastreadores: List<veiculos>) {
+    fun atualiza(veiculos: List<veiculos>) {
         this.veiculos.clear()
         this.veiculos.addAll(veiculos)
         notifyDataSetChanged()

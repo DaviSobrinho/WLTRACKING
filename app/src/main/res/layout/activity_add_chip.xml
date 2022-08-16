@@ -145,8 +145,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/Hint5"
-                    android:inputType="number"
-                    android:digits="1234567890,.$"/>
+                    android:inputType="numberDecimal"
+                    android:digits="1234567890,.R$"/>
             </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:layout_width="match_parent"
@@ -160,6 +160,7 @@
 
             </Button>
             <TableLayout
+                android:id="@+id/ActivityAddChipTableLayoutCheckBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

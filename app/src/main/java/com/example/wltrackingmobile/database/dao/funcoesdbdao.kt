@@ -2,13 +2,8 @@ package com.example.wltrackingmobile.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.wltrackingmobile.model.chips
-import com.example.wltrackingmobile.model.clientes
-import com.example.wltrackingmobile.model.rastreadores
-import com.example.wltrackingmobile.model.veiculos
 import androidx.room.Dao
-
-
+import com.example.wltrackingmobile.model.*
 
 
 @Dao
@@ -101,4 +96,25 @@ interface funcoesdbdao {
 
     @Update
     fun atualizaveiculos(vararg Veiculos: veiculos)
+
+    @Query("SELECT * FROM chips_rastreadores")
+    fun buscaTodosChipsRastreadores() :List<chips_rastreadores>
+
+    @Query("SELECT * FROM chips_rastreadores WHERE imeichip = :imeichip")
+    fun findChipsRastreadoresPorImeiChip(imeichip: String?): List<chips_rastreadores>
+
+    @Query("Select * from chips_rastreadores where imeichip like :imeichip")
+    fun getSearchResultsChipsRastreadores(imeichip : String) : LiveData<List<chips_rastreadores>>
+
+    @Query("SELECT * FROM chips_rastreadores")
+    fun buscaUmChipsRastreadores() : List<chips_rastreadores>
+
+    @Insert
+    fun salvaChipsRastreadores(vararg ChipsRastreadores: chips_rastreadores)
+
+    @Delete
+    fun removeChipsRastreadores(vararg ChipsRastreadores: chips_rastreadores)
+
+    @Update
+    fun atualizaChipsRastreadores(vararg ChipsRastreadores: chips_rastreadores)
 }

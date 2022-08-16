@@ -3,21 +3,20 @@ package com.example.wltrackingmobile
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
-import android.transition.TransitionManager
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.wltrackingmobile.adapters.activitymainchipsadapter
+import com.example.wltrackingmobile.adapters.activitymainrastreadoresadapter
+import com.example.wltrackingmobile.adapters.activitymainveiculosadapter
 import com.example.wltrackingmobile.database.AppDatabase
 import com.example.wltrackingmobile.fragments.adapters.AdapterTabPager
-import com.example.wltrackingmobile.model.chips
+import com.example.wltrackingmobile.model.rastreadores
+import com.example.wltrackingmobile.model.rastreadores_veiculos
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity(){
 
@@ -65,13 +64,15 @@ class MainActivity : AppCompatActivity(){
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels)
                 if(position == 3) {
-                    val text = "O chip foi adicionado!"
-                    val duration = Toast.LENGTH_SHORT
-                    val toast = Toast.makeText(applicationContext, text, duration)
-                    toast.show()
                     val recyclerviewchips = findViewById<RecyclerView>(R.id.frament_chips_recyclerView)
                     if (recyclerviewchips != null) {
-                        configuraRecyclerView()
+                        configuraRecyclerViewChips()
+                    }
+                }
+                if(position == 2){
+                    val recyclerviewveiculos = findViewById<RecyclerView>(R.id.frament_rastreadores_recyclerView)
+                    if (recyclerviewveiculos !=null){
+                        configuraRecyclerViewRastreadores()
                     }
                 }
             }
@@ -107,7 +108,7 @@ class MainActivity : AppCompatActivity(){
             startActivity(intent, bundle)
         }
     }
-    fun configuraRecyclerView() {
+    fun configuraRecyclerViewChips() {
         val adapter = activitymainchipsadapter(context = this)
         val db = AppDatabase.instancia(this)
         val chips = db.funcoesdbdao()
@@ -116,8 +117,14 @@ class MainActivity : AppCompatActivity(){
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
     }
-    fun startMainActivity(){
-        val intent = Intent(applicationContext, MainActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+    fun configuraRecyclerViewRastreadores() {
+        val adapter = activitymainrastreadoresadapter(context = this)
+        val db = AppDatabase.instancia(this)
+        val rastreadores = db.funcoesdbdao()
+        adapter.atualiza(rastreadores.buscaTodosrastreadores())
+        val recyclerView = findViewById<RecyclerView>(R.id.frament_rastreadores_recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+
     }
 }
