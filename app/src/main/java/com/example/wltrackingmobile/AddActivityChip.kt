@@ -59,7 +59,7 @@ class AddActivityChip : AppCompatActivity() {
         val checkativado = findViewById<CompoundButton>(R.id.ActivityAddChipCheckBox1)
         val checkdesativado = findViewById<CheckBox>(R.id.ActivityAddChipCheckBox2)
         val checkmanutencao = findViewById<CheckBox>(R.id.ActivityAddChipCheckBox3)
-        var estado : String = ""
+        var estado = ""
         checkativado.setOnCheckedChangeListener{ buttonView, isChecked ->
             if( isChecked){
                 checkdesativado.isChecked = false

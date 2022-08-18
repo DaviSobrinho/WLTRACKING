@@ -117,4 +117,8 @@ interface funcoesdbdao {
 
     @Update
     fun atualizaChipsRastreadores(vararg ChipsRastreadores: chips_rastreadores)
+
+    @Insert
+    fun mesclaChipsRastreadores(vararg ChipsRastreadores: chips_rastreadores)
+
 }

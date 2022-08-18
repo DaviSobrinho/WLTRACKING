@@ -83,7 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="IMEI:"
-                    android:digits="1234567890-. "
+                    android:digits="1234567890-."
                     android:inputType="number" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -114,7 +114,7 @@
                     android:layout_height="match_parent"
                     android:hint="Telefone:"
                     android:inputType="number"
-                    android:digits="1234567890-() "/>
+                    android:digits="1234567890-()"/>
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout

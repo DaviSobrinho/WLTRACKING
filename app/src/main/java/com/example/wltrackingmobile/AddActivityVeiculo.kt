@@ -4,7 +4,13 @@ import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CalendarView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.wltrackingmobile.database.AppDatabase
+import com.example.wltrackingmobile.model.clientes
+import com.example.wltrackingmobile.model.veiculos
+import com.google.android.material.textfield.TextInputEditText
 
 class AddActivityVeiculo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,6 +18,7 @@ class AddActivityVeiculo : AppCompatActivity() {
         setContentView(R.layout.activity_add_veiculo)
         title = "Adicionar"
         startAddActivities()
+        criaCliente()
     }
 
     override fun onBackPressed() {
@@ -41,6 +48,31 @@ class AddActivityVeiculo : AppCompatActivity() {
             val intent = Intent(this, AddActivityRastreador::class.java)
             val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
             startActivity(intent, bundle)
+        }
+    }
+    fun criaCliente() {
+        val db = AppDatabase.instancia(this)
+        val botaoadicionar = findViewById<Button>(R.id.ActivityAddVeiculoButtonConfirmar)
+        botaoadicionar.setOnClickListener {
+
+            val addmodelo = findViewById<TextInputEditText>(R.id.ActivityAddVeiculoTextInput1)
+            val modelo: String = addmodelo.text.toString()
+            val addplaca = findViewById<TextInputEditText>(R.id.ActivityAddVeiculoTextInput2)
+            val placa: String = addplaca.text.toString()
+            val addano = findViewById<TextInputEditText>(R.id.ActivityAddVeiculoTextInput3)
+            val ano: String = addano.text.toString()
+            val veiculosDao = db.funcoesdbdao()
+            veiculosDao.salvaveiculos(
+                veiculos(
+                    modelo = modelo,
+                    placa = placa,
+                    ano = ano,
+                )
+            )
+            val text = "O Veículo foi adicionado!"
+            val duration = Toast.LENGTH_SHORT
+            val toast = Toast.makeText(applicationContext, text, duration)
+            toast.show()
         }
     }
     private fun startMainActivity(){

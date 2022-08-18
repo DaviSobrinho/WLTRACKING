@@ -7,11 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.wltrackingmobile.adapters.activitymainchipsadapter
-import com.example.wltrackingmobile.adapters.activitymainrastreadoresadapter
-import com.example.wltrackingmobile.adapters.activitymainveiculosadapter
+import com.example.wltrackingmobile.adapters.*
 import com.example.wltrackingmobile.database.AppDatabase
 import com.example.wltrackingmobile.fragments.adapters.AdapterTabPager
+import com.example.wltrackingmobile.model.chips
+import com.example.wltrackingmobile.model.chips_rastreadores
 import com.example.wltrackingmobile.model.rastreadores
 import com.example.wltrackingmobile.model.rastreadores_veiculos
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -24,14 +24,11 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         title ="Página Inicial"
-
         val tabLayout = findViewById<TabLayout>(R.id.ActivityMainTabLayout)
         val viewPager2 = findViewById<ViewPager2>(R.id.ActivityMainViewPager)
         val adapter = AdapterTabPager(supportFragmentManager, lifecycle)
-
+//        criachipsrastreador()
         viewPager2.adapter = adapter
-
-
         TabLayoutMediator(tabLayout, viewPager2){ tab, position->
             when(position){
                 0 ->{
@@ -73,6 +70,18 @@ class MainActivity : AppCompatActivity(){
                     val recyclerviewveiculos = findViewById<RecyclerView>(R.id.frament_rastreadores_recyclerView)
                     if (recyclerviewveiculos !=null){
                         configuraRecyclerViewRastreadores()
+                    }
+                }
+                if(position == 1){
+                    val recyclerviewveiculos = findViewById<RecyclerView>(R.id.frament_veiculos_recyclerView)
+                    if (recyclerviewveiculos !=null){
+                        configuraRecyclerViewVeiculos()
+                    }
+                }
+                if(position == 0){
+                    val recyclerviewclientes = findViewById<RecyclerView>(R.id.frament_clientes_recyclerView)
+                    if (recyclerviewclientes != null){
+                        configuraRecyclerViewClientes()
                     }
                 }
             }
@@ -117,7 +126,7 @@ class MainActivity : AppCompatActivity(){
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
     }
-    fun configuraRecyclerViewRastreadores() {
+    fun configuraRecyclerViewRastreadores(){
         val adapter = activitymainrastreadoresadapter(context = this)
         val db = AppDatabase.instancia(this)
         val rastreadores = db.funcoesdbdao()
@@ -125,6 +134,45 @@ class MainActivity : AppCompatActivity(){
         val recyclerView = findViewById<RecyclerView>(R.id.frament_rastreadores_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
-
+    }
+    fun configuraRecyclerViewClientes(){
+        val adapter = activitymainclientesadapter(context = this)
+        val db = AppDatabase.instancia(this)
+        val clientes = db.funcoesdbdao()
+        adapter.atualiza(clientes.buscaTodosclientes())
+        val recyclerView = findViewById<RecyclerView>(R.id.frament_clientes_recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+    }
+    fun configuraRecyclerViewVeiculos(){
+        val adapter = activitymainveiculosadapter(context = this)
+        val db = AppDatabase.instancia(this)
+        val veiculos = db.funcoesdbdao()
+        adapter.atualiza(veiculos.buscaTodosveiculos())
+        val recyclerView = findViewById<RecyclerView>(R.id.frament_veiculos_recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+    }
+    private fun criachipsrastreador(){
+        val db = AppDatabase.instancia(this)
+        val botaoadicionar = findViewById<FloatingActionButton>(R.id.adicionar)
+        botaoadicionar.setOnClickListener{
+            val chipsrastreadores = db.funcoesdbdao()
+            chipsrastreadores.salvaChipsRastreadores(
+                chips_rastreadores(
+                imeichip = "52",
+                imeirastreador = "TesteRas",
+                )
+            )
+        }
+    }
+    private fun configuraViewChipsRastreadores(){
+        val adapter = activitymainchipsrastreadoresadapter(context = this)
+        val db = AppDatabase.instancia(this)
+        val chipsrastreadores = db.funcoesdbdao()
+        adapter.atualiza(chipsrastreadores.findChipsRastreadoresPorImeiChip(imeichip = "52"))
+        val recyclerView = findViewById<RecyclerView>(R.id.frament_veiculos_recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
     }
 }

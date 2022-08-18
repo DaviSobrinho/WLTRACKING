@@ -43,7 +43,7 @@ class activitymainclientesadapter (private val context: Context, clientes: List<
         holder.vincula(clientes)
     }
     override fun getItemCount(): Int = clientes.size
-    fun atualiza(chips: List<chips>) {
+    fun atualiza(clientes: List<clientes>) {
         this.clientes.clear()
         this.clientes.addAll(clientes)
         notifyDataSetChanged()

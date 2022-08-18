@@ -82,8 +82,7 @@
                     android:id="@+id/ActivityAddRastreadorTextInput1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Modelo:"
-                    android:inputType="text" />
+                    android:hint="Modelo:"/>
 
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -99,7 +98,7 @@
                     android:layout_height="match_parent"
                     android:hint="IMEI:"
                     android:inputType="number"
-                    android:digits="1234567890-. "/>
+                    android:digits="1234567890-."/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ActivityAddRastreadorTextInputLayout3"
