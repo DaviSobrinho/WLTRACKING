@@ -99,7 +99,7 @@
                     android:layout_height="match_parent"
                     android:hint="Placa:"
                     android:inputType="text"
-                    android:digits="1234567890-qwertyuiopasdfghjklzxcvbnm"/>
+                    android:digits="1234567890-qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLÇZXCVBNM"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ActivityAddVeiculoTextInputLayout3"

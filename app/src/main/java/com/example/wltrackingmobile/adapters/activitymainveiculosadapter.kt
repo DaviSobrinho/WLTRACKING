@@ -17,9 +17,9 @@ class activitymainveiculosadapter (private val context: Context, veiculos: List<
         fun vincula(veiculos: veiculos) {
             val placa = itemView.findViewById<TextView>(R.id.Fragment_veiculos_placa)
             placa.text = (veiculos.placa)
-            val modelo = itemView.findViewById<TextView>(R.id.Fragment_rastreadores_Modelo)
+            val modelo = itemView.findViewById<TextView>(R.id.Fragment_veiculos_modelo)
             modelo.text = (veiculos.modelo)
-            val ano = itemView.findViewById<TextView>(R.id.Fragment_rastreadores_estado)
+            val ano = itemView.findViewById<TextView>(R.id.Fragment_veiculos_ano)
             ano.text = (veiculos.ano)
         }
     }
