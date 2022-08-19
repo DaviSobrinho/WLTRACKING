@@ -53,17 +53,16 @@ class AddActivityCliente : AppCompatActivity() {
     fun criaCliente() {
         val db = AppDatabase.instancia(this)
         val botaoadicionar = findViewById<Button>(R.id.ActivityAddClienteButtonConfirmar)
+        val calendarview = findViewById<CalendarView>(R.id.ActivityAddClienteCalendarView)
+        var calendardate = ""
+        calendarview.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
+            val dia = dayOfMonth.toString()
+            val mes = (month+1).toString()
+            val ano = year.toString()
+            calendardate = (dia+"-"+mes+"-"+ano)
+            title = calendardate
+        })
         botaoadicionar.setOnClickListener {
-            val calendarview = findViewById<CalendarView>(R.id.ActivityAddClienteCalendarView)
-            var calendardate = ""
-            calendarview.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
-                val dia = dayOfMonth.toString()
-                val mes = (month+1).toString()
-                val ano = year.toString()
-                calendardate = (dia+"/"+mes+"/"+ano)
-                title = calendardate
-            })
-
             val addnome = findViewById<TextInputEditText>(R.id.ActivityAddClienteTextInput1)
             val nome: String = addnome.text.toString()
             val addcpf = findViewById<TextInputEditText>(R.id.ActivityAddClienteTextInput2)

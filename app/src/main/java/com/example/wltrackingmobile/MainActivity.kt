@@ -3,6 +3,9 @@ package com.example.wltrackingmobile
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
+import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,19 +13,18 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.wltrackingmobile.adapters.*
 import com.example.wltrackingmobile.database.AppDatabase
 import com.example.wltrackingmobile.fragments.adapters.AdapterTabPager
-import com.example.wltrackingmobile.model.chips
 import com.example.wltrackingmobile.model.chips_rastreadores
-import com.example.wltrackingmobile.model.rastreadores
-import com.example.wltrackingmobile.model.rastreadores_veiculos
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        startVisualizaActivity()
         title ="Página Inicial"
         val tabLayout = findViewById<TabLayout>(R.id.ActivityMainTabLayout)
         val viewPager2 = findViewById<ViewPager2>(R.id.ActivityMainViewPager)
@@ -94,8 +96,9 @@ class MainActivity : AppCompatActivity(){
             override fun onTabReselected(tab: TabLayout.Tab){
             }
         })
+        configuraPesquisa()
         nukechip()
-        startAddActivity()
+        startAddClienteActivity()
     }
     override fun onResume() {
         super.onResume()
@@ -109,7 +112,41 @@ class MainActivity : AppCompatActivity(){
             chipsatualizadao.nukeTable()
         }
     }
-    private fun startAddActivity(){
+    private fun configuraPesquisa(){
+        findViewById<TextInputEditText>(R.id.ActivityMainTextInput).setOnEditorActionListener { v, actionId, event ->
+            return@setOnEditorActionListener when (actionId) {
+                EditorInfo.IME_ACTION_GO-> {
+                    val Key = findViewById<TextInputEditText>(R.id.ActivityMainTextInput)
+                    val intent = Intent(this, VisualizaClienteActivity::class.java, )
+                    val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                    intent.putExtra("key", Key.text.toString())
+                    startActivity(intent, bundle)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+    private fun startVisualizaActivity(){
+        val botaovisualizaactivity = findViewById<FloatingActionButton>(R.id.adicionar)
+        botaovisualizaactivity.setOnClickListener{
+            val Key = findViewById<TextInputEditText>(R.id.ActivityMainTextInput)
+            val intent = Intent(this, VisualizaClienteActivity::class.java, )
+            val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+            intent.putExtra("key", Key.text.toString())
+            startActivity(intent, bundle)
+        }
+    }
+
+    private fun startAddChipActivity(){
+        val botaoinciaaddactivity = findViewById<FloatingActionButton>(R.id.excluir)
+        botaoinciaaddactivity.setOnClickListener{
+            val intent = Intent(this, AddActivityCliente::class.java)
+            val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+            startActivity(intent, bundle)
+        }
+    }
+    private fun startAddClienteActivity(){
         val botaoinciaaddactivity = findViewById<FloatingActionButton>(R.id.excluir)
         botaoinciaaddactivity.setOnClickListener{
             val intent = Intent(this, AddActivityCliente::class.java)

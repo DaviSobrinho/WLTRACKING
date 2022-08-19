@@ -12,4 +12,5 @@ class chips(
     val telefone: String = "1",
     val custo: String = "1",
     val dia: String = "1",
+    val notas: String ="1"
 )

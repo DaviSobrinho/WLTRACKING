@@ -34,6 +34,10 @@
             android:name=".AddActivityRastreador"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".VisualizaClienteActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

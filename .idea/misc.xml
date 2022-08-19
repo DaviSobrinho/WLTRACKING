@@ -12,6 +12,14 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/activity_add_rastreador.xml" value="0.25" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/activity_add_veiculo.xml" value="0.2015625" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/activity_main.xml" value="0.14" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/activity_visualiza_chip.xml" value="0.25" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/activity_visualiza_chip_recyclerviewcontent.xml" value="0.2" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/activity_visualiza_cliente.xml" value="0.25" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/activity_visualiza_cliente_recyclerviewcontent.xml" value="0.13" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/activity_visualiza_rastreador.xml" value="0.1265625" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/activity_visualiza_rastreador_recyclerviewcontent.xml" value="0.1265625" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/activity_visualiza_veiculo.xml" value="0.1265625" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/activity_visualiza_veiculo_recyclerviewcontent.xml" value="0.1265625" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/fragment_chips.xml" value="0.1" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/fragment_chips2.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/WLTRACKINGMOBILE/app/src/main/res/layout/fragment_chips_recyclerviewcontent.xml" value="0.12552083333333333" />

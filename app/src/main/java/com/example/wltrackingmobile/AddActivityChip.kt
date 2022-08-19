@@ -103,6 +103,8 @@ class AddActivityChip : AppCompatActivity() {
             val dia: String = adddia.text.toString()
             val addcusto = findViewById<TextInputEditText>(R.id.ActivityAddChipTextInput5)
             val custo: String = addcusto.text.toString()
+            val addnotas = findViewById<TextInputEditText>(R.id.ActivityAddChipTextInput6)
+            val notas: String = addnotas.text.toString()
             val chipsDao = db.funcoesdbdao()
             chipsDao.salva(
                 chips(
@@ -112,6 +114,7 @@ class AddActivityChip : AppCompatActivity() {
                     dia = dia,
                     custo = custo,
                     modelo = modelo,
+                    notas = notas,
                 )
             )
             val text = "O chip foi adicionado!"
