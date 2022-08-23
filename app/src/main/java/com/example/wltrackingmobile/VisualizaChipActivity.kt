@@ -1,6 +1,9 @@
 package com.example.wltrackingmobile
 
+import android.media.Image
 import android.os.Bundle
+import android.text.Editable
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -8,22 +11,35 @@ import com.example.wltrackingmobile.adapters.activitymainclientesadapter
 import com.example.wltrackingmobile.adapters.activityvisualizachipsadapter
 import com.example.wltrackingmobile.adapters.activityvisualizaclientesadapter
 import com.example.wltrackingmobile.database.AppDatabase
+import com.example.wltrackingmobile.model.chips
+import com.example.wltrackingmobile.model.chips_rastreadores
+import com.example.wltrackingmobile.model.rastreadores
 import com.google.android.material.textfield.TextInputEditText
 
 class VisualizaChipActivity : AppCompatActivity() {
 
-    private val adapter = activityvisualizachipsadapter(context = this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visualiza_chip)
         configuraRecyclerView()
-        val textInput1 = findViewById<TextInputEditText>(R.id.ActivityVisualizaChipTextInput1)
-        val textInput2 = findViewById<TextInputEditText>(R.id.ActivityVisualizaChipTextInput2)
-        val textInput3 = findViewById<TextInputEditText>(R.id.ActivityVisualizaChipTextInput3)
-        val textInput4 = findViewById<TextInputEditText>(R.id.ActivityVisualizaChipTextInput4)
-        val textInput5 = findViewById<TextInputEditText>(R.id.ActivityVisualizaChipTextInput5)
-        val textInput6 = findViewById<TextInputEditText>(R.id.ActivityVisualizaChipTextInput6)
-        val textInput7 = findViewById<TextInputEditText>(R.id.ActivityVisualizaChipTextInput7)
+        val button = findViewById<ImageView>(R.id.ActivityVisualizaChipImage)
+        button.setOnClickListener(){
+
+            val db = AppDatabase.instancia(this)
+            val funcoesdbdao = db.funcoesdbdao()
+            val imei = (findViewById<TextInputEditText>(R.id.ActivityVisualizaChipTextInput1).text.toString())
+            val spinner3 = funcoesdbdao.findChipsRastreadoresPorImeiChip(imei)
+            val spinner4 = spinner3.toMutableList()
+            val chipsras : List<chips_rastreadores> = emptyList()
+            val chipras = chipsras.toMutableList()
+            title = chipras.toString()
+            val text = findViewById<TextInputEditText>(R.id.ActivityVisualizaChipTextInput2)
+            text.text = Editable.Factory.getInstance().newEditable(spinner3.toString())
+            val arraySpinner = listOf<String>("Rodrigo Leutz","Tutorial","Kotlin","Spinner")
+            val arrayAdapter = ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, arraySpinner)
+            val ActivityVisualizaChipSpinner3 = findViewById<Spinner>(R.id.ActivityVisualizaChipSpinner3)
+            ActivityVisualizaChipSpinner3.adapter = arrayAdapter
+        }
     }
     private fun configuraRecyclerView() {
         val extras = intent.extras
@@ -35,5 +51,6 @@ class VisualizaChipActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.ActivityVisualizaChipRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+
     }
 }

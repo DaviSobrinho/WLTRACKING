@@ -26,7 +26,8 @@
                 app:srcCompat="@drawable/ic_action_chip"
                 app:tint="@color/white"
                 android:background="@color/purple_500"
-                android:padding="10dp"/>
+                android:padding="10dp"
+                android:clickable="true"/>
 
             <TextView
                 android:id="@+id/ActivityVisualizaChipTextView"

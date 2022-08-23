@@ -61,12 +61,15 @@ class AddActivityVeiculo : AppCompatActivity() {
             val placa: String = addplaca.text.toString()
             val addano = findViewById<TextInputEditText>(R.id.ActivityAddVeiculoTextInput3)
             val ano: String = addano.text.toString()
+            val addnotas = findViewById<TextInputEditText>(R.id.ActivityAddVeiculoTextInput4)
+            val notas: String = addnotas.text.toString()
             val veiculosDao = db.funcoesdbdao()
             veiculosDao.salvaveiculos(
                 veiculos(
                     modelo = modelo,
                     placa = placa,
                     ano = ano,
+                    notas = notas,
                 )
             )
             val text = "O Veículo foi adicionado!"

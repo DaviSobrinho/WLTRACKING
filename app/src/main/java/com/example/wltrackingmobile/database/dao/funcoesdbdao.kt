@@ -100,8 +100,8 @@ interface funcoesdbdao {
     @Query("SELECT * FROM chips_rastreadores")
     fun buscaTodosChipsRastreadores() :List<chips_rastreadores>
 
-    @Query("SELECT * FROM chips_rastreadores WHERE imeichip = :imeichip")
-    fun findChipsRastreadoresPorImeiChip(imeichip: String?): List<chips_rastreadores>
+    @Query("SELECT * FROM chips_rastreadores where imeichip like :imeichip")
+    fun findChipsRastreadoresPorImeiChip(imeichip: String): List<chips_rastreadores>
 
     @Query("Select * from chips_rastreadores where imeichip like :imeichip")
     fun getSearchResultsChipsRastreadores(imeichip : String) : LiveData<List<chips_rastreadores>>

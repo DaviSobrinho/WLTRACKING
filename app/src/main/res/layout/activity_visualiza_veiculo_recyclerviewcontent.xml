@@ -20,7 +20,7 @@
                 android:id="@+id/ActivityVisualizaVeiculoTextInput1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/Hint1"/>
+                android:hint="Modelo:"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -34,9 +34,8 @@
                 android:id="@+id/ActivityVisualizaVeiculoTextInput2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/Hint2"
-                android:inputType="number"
-                android:digits="1234567890-."/>
+                android:hint="Placa:"
+                android:digits="qwertyuiopasdfghjklçzxcvbnmQWERTYUIOPASDFGHJKLÇZXCVBNM1234567890-"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ActivityVisualizaVeiculoTextInputLayout3"
@@ -49,9 +48,9 @@
                 android:id="@+id/ActivityVisualizaVeiculoTextInput3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/Hint3"
+                android:hint="Ano:"
                 android:inputType="number"
-                android:digits="1234567890-() "/>
+                android:digits="1234567890/"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -65,52 +64,7 @@
                 android:id="@+id/ActivityVisualizaVeiculoTextInput4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/Hint4"
-                android:inputType="number"
-                android:digits="1234567890"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ActivityVisualizaVeiculoTextInputLayout5"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ActivityVisualizaVeiculoTextInput5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/Hint5"
-                android:inputType="numberDecimal"
-                android:digits="1234567890,.R$"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ActivityVisualizaVeiculoTextInputLayout6"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ActivityVisualizaVeiculoTextInput6"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Vencimento do contrato:"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ActivityVisualizaVeiculoTextInputLayout7"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ActivityVisualizaVeiculoTextInput7"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/Hint7"/>
+                android:hint="Notas:"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <Button

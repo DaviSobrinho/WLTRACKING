@@ -20,7 +20,7 @@
                 android:id="@+id/ActivityVisualizaRastreadorTextInput1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/Hint1"/>
+                android:hint="Modelo:"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -34,7 +34,7 @@
                 android:id="@+id/ActivityVisualizaRastreadorTextInput2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/Hint2"
+                android:hint="IMEI:"
                 android:inputType="number"
                 android:digits="1234567890-."/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -49,9 +49,7 @@
                 android:id="@+id/ActivityVisualizaRastreadorTextInput3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/Hint3"
-                android:inputType="number"
-                android:digits="1234567890-() "/>
+                android:hint="Local de instalação:"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -65,9 +63,7 @@
                 android:id="@+id/ActivityVisualizaRastreadorTextInput4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/Hint4"
-                android:inputType="number"
-                android:digits="1234567890"/>
+                android:hint="Estado de funcionamento:"/>
 
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -81,38 +77,10 @@
                 android:id="@+id/ActivityVisualizaRastreadorTextInput5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/Hint5"
-                android:inputType="numberDecimal"
-                android:digits="1234567890,.R$"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ActivityVisualizaRastreadorTextInputLayout6"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ActivityVisualizaRastreadorTextInput6"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Vencimento do contrato:"/>
+                android:hint="Notas:"/>
 
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/ActivityVisualizaRastreadorTextInputLayout7"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/ActivityVisualizaRastreadorTextInput7"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/Hint7"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
         <Button
             android:id="@+id/ActivityVisualizaRastreadorButtonConfirmar"
             android:layout_width="match_parent"

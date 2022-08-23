@@ -9,4 +9,6 @@ class rastreadores(
     val id: Long = 0L,
     val modelo: String,
     val estado: String,
+    val local: String,
+    val notas: String,
 )
