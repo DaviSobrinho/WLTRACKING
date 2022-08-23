@@ -12,7 +12,6 @@ import com.google.android.material.textfield.TextInputEditText
 
 class VisualizaChipActivity : AppCompatActivity() {
 
-    private val adapter = activityvisualizachipsadapter(context = this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visualiza_chip)

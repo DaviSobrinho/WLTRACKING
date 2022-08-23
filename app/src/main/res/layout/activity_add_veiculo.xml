@@ -117,7 +117,19 @@
                     android:digits="1234567890"/>
 
             </com.google.android.material.textfield.TextInputLayout>
-
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ActivityAddVeiculoTextInputLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ActivityAddVeiculoTextInput4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Notas:"/>
+            </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:id="@+id/ActivityAddVeiculoButtonConfirmar"
                 android:layout_width="match_parent"

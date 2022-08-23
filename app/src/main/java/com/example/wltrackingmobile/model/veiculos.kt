@@ -9,4 +9,5 @@ class veiculos(
     val id: Long = 0L,
     val modelo: String,
     val ano: String,
+    val notas: String,
 )

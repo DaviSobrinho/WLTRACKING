@@ -38,6 +38,18 @@
             android:name=".VisualizaClienteActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".VisualizaChipActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".VisualizaVeiculoActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".VisualizaRastreadorActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

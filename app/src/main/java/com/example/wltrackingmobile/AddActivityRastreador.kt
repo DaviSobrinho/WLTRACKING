@@ -63,16 +63,22 @@ class AddActivityRastreador : AppCompatActivity() {
         val botaoadicionar = findViewById<Button>(R.id.ActivityAddRastreadorButtonConfirmar)
 
         botaoadicionar.setOnClickListener {
-            val addimei = findViewById<TextInputEditText>(R.id.ActivityAddRastreadorTextInput1)
+            val addimei = findViewById<TextInputEditText>(R.id.ActivityAddRastreadorTextInput2)
             val imei: String = addimei.text.toString()
-            val addmodelo = findViewById<TextInputEditText>(R.id.ActivityAddRastreadorTextInput2)
+            val addmodelo = findViewById<TextInputEditText>(R.id.ActivityAddRastreadorTextInput1)
             val modelo: String = addmodelo.text.toString()
+            val addlocal = findViewById<TextInputEditText>(R.id.ActivityAddRastreadorTextInput3)
+            val local: String = addlocal.text.toString()
+            val addnotas = findViewById<TextInputEditText>(R.id.ActivityAddRastreadorTextInput4)
+            val notas: String = addnotas.text.toString()
             val rastreadoresDao = db.funcoesdbdao()
             rastreadoresDao.salvarastreadores(
                 rastreadores(
                     imei = imei,
                     estado = estado,
                     modelo = modelo,
+                    local = local,
+                    notas = notas,
                 )
             )
             val text = "O rastreador foi adicionado!"

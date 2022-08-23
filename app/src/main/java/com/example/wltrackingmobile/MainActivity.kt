@@ -3,8 +3,6 @@ package com.example.wltrackingmobile
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
-import android.view.KeyEvent
-import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,7 +22,7 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        startVisualizaActivity()
+        startVisualizaClienteActivity()
         title ="Página Inicial"
         val tabLayout = findViewById<TabLayout>(R.id.ActivityMainTabLayout)
         val viewPager2 = findViewById<ViewPager2>(R.id.ActivityMainViewPager)
@@ -66,24 +64,28 @@ class MainActivity : AppCompatActivity(){
                     val recyclerviewchips = findViewById<RecyclerView>(R.id.frament_chips_recyclerView)
                     if (recyclerviewchips != null) {
                         configuraRecyclerViewChips()
+                        configuraPesquisaChip()
                     }
                 }
                 if(position == 2){
                     val recyclerviewveiculos = findViewById<RecyclerView>(R.id.frament_rastreadores_recyclerView)
                     if (recyclerviewveiculos !=null){
                         configuraRecyclerViewRastreadores()
+                        configuraPesquisaRastreador()
                     }
                 }
                 if(position == 1){
                     val recyclerviewveiculos = findViewById<RecyclerView>(R.id.frament_veiculos_recyclerView)
                     if (recyclerviewveiculos !=null){
                         configuraRecyclerViewVeiculos()
+                        configuraPesquisaVeiculo()
                     }
                 }
                 if(position == 0){
                     val recyclerviewclientes = findViewById<RecyclerView>(R.id.frament_clientes_recyclerView)
                     if (recyclerviewclientes != null){
                         configuraRecyclerViewClientes()
+                        configuraPesquisaCliente()
                     }
                 }
             }
@@ -96,7 +98,6 @@ class MainActivity : AppCompatActivity(){
             override fun onTabReselected(tab: TabLayout.Tab){
             }
         })
-        configuraPesquisa()
         nukechip()
         startAddClienteActivity()
     }
@@ -112,7 +113,7 @@ class MainActivity : AppCompatActivity(){
             chipsatualizadao.nukeTable()
         }
     }
-    private fun configuraPesquisa(){
+    private fun configuraPesquisaCliente(){
         findViewById<TextInputEditText>(R.id.ActivityMainTextInput).setOnEditorActionListener { v, actionId, event ->
             return@setOnEditorActionListener when (actionId) {
                 EditorInfo.IME_ACTION_GO-> {
@@ -127,7 +128,52 @@ class MainActivity : AppCompatActivity(){
             }
         }
     }
-    private fun startVisualizaActivity(){
+    private fun configuraPesquisaChip(){
+        findViewById<TextInputEditText>(R.id.ActivityMainTextInput).setOnEditorActionListener { v, actionId, event ->
+            return@setOnEditorActionListener when (actionId) {
+                EditorInfo.IME_ACTION_GO-> {
+                    val Key = findViewById<TextInputEditText>(R.id.ActivityMainTextInput)
+                    val intent = Intent(this, VisualizaChipActivity::class.java, )
+                    val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                    intent.putExtra("key", Key.text.toString())
+                    startActivity(intent, bundle)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+    private fun configuraPesquisaRastreador(){
+        findViewById<TextInputEditText>(R.id.ActivityMainTextInput).setOnEditorActionListener { v, actionId, event ->
+            return@setOnEditorActionListener when (actionId) {
+                EditorInfo.IME_ACTION_GO-> {
+                    val Key = findViewById<TextInputEditText>(R.id.ActivityMainTextInput)
+                    val intent = Intent(this, VisualizaRastreadorActivity::class.java, )
+                    val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                    intent.putExtra("key", Key.text.toString())
+                    startActivity(intent, bundle)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+    private fun configuraPesquisaVeiculo(){
+        findViewById<TextInputEditText>(R.id.ActivityMainTextInput).setOnEditorActionListener { v, actionId, event ->
+            return@setOnEditorActionListener when (actionId) {
+                EditorInfo.IME_ACTION_GO-> {
+                    val Key = findViewById<TextInputEditText>(R.id.ActivityMainTextInput)
+                    val intent = Intent(this, VisualizaVeiculoActivity::class.java, )
+                    val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                    intent.putExtra("key", Key.text.toString())
+                    startActivity(intent, bundle)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+    private fun startVisualizaClienteActivity(){
         val botaovisualizaactivity = findViewById<FloatingActionButton>(R.id.adicionar)
         botaovisualizaactivity.setOnClickListener{
             val Key = findViewById<TextInputEditText>(R.id.ActivityMainTextInput)
