@@ -18,7 +18,9 @@
 
             <ImageView
                 android:id="@+id/ActivityVisualizaChipImage"
-                android:layout_width="150dp"
+                android:layout_width="fill_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
@@ -31,7 +33,9 @@
 
             <TextView
                 android:id="@+id/ActivityVisualizaChipTextView"
-                android:layout_width="150dp"
+                android:layout_width="fill_parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:background="@color/purple_500"
@@ -48,21 +52,27 @@
             android:orientation="vertical">
             <Spinner
                 android:id="@+id/ActivityVisualizaChipSpinner1"
-                android:layout_width="150dp"
+                android:layout_width="fill_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp">
             </Spinner>
             <Spinner
                 android:id="@+id/ActivityVisualizaChipSpinner2"
-                android:layout_width="150dp"
+                android:layout_width="fill_parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp">
             </Spinner>
             <Spinner
                 android:id="@+id/ActivityVisualizaChipSpinner3"
-                android:layout_width="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_width="fill_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp">

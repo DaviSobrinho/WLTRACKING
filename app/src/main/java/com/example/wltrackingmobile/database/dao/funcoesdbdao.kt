@@ -2,7 +2,6 @@ package com.example.wltrackingmobile.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import androidx.room.Dao
 import com.example.wltrackingmobile.model.*
 
 
@@ -100,8 +99,8 @@ interface funcoesdbdao {
     @Query("SELECT * FROM chips_rastreadores")
     fun buscaTodosChipsRastreadores() :List<chips_rastreadores>
 
-    @Query("SELECT * FROM chips_rastreadores where imeichip like :imeichip")
-    fun findChipsRastreadoresPorImeiChip(imeichip: String): List<chips_rastreadores>
+    @Query("SELECT imeirastreador FROM chips_rastreadores where imeichip like :imeichip")
+    fun findChipsRastreadoresPorImeiChip(imeichip: String): String?
 
     @Query("Select * from chips_rastreadores where imeichip like :imeichip")
     fun getSearchResultsChipsRastreadores(imeichip : String) : LiveData<List<chips_rastreadores>>

@@ -17,8 +17,6 @@ class activitymainchipsrastreadoresadapter (private val context: Context,
     private val chips_rastreadores = chips_rastreadores.toMutableList()
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun vincula(chips_rastreadores: chips_rastreadores) {
-            val id = itemView.findViewById<TextView>(R.id.Fragment_veiculos_placa)
-            id.text = (chips_rastreadores.id).toString()
             val imeichip = itemView.findViewById<TextView>(R.id.Fragment_veiculos_ano)
             imeichip.text = (chips_rastreadores.imeichip)
             val imeirastreador = itemView.findViewById<TextView>(R.id.Fragment_veiculos_modelo)
