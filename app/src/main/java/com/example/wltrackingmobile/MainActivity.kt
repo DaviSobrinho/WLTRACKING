@@ -11,7 +11,9 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.wltrackingmobile.adapters.*
 import com.example.wltrackingmobile.database.AppDatabase
 import com.example.wltrackingmobile.fragments.adapters.AdapterTabPager
+import com.example.wltrackingmobile.model.chips_clientes
 import com.example.wltrackingmobile.model.chips_rastreadores
+import com.example.wltrackingmobile.model.chips_veiculos
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -97,7 +99,8 @@ class MainActivity : AppCompatActivity(){
             override fun onTabReselected(tab: TabLayout.Tab){
             }
         })
-        nukechip()
+        criachipsCliente()
+        criachipsVeiculos()
         criachipsrastreador()
         startAddClienteActivity()
     }
@@ -105,14 +108,6 @@ class MainActivity : AppCompatActivity(){
         super.onResume()
     }
 
-    private fun nukechip(){
-        val dbn = AppDatabase.instancia(this)
-        val botaoatualizar = findViewById<FloatingActionButton>(R.id.atualizar)
-        botaoatualizar.setOnClickListener{
-            val chipsatualizadao = dbn.funcoesdbdao()
-            chipsatualizadao.nukeTable()
-        }
-    }
     private fun configuraPesquisaCliente(){
         findViewById<TextInputEditText>(R.id.ActivityMainTextInput).setOnEditorActionListener { v, actionId, event ->
             return@setOnEditorActionListener when (actionId) {
@@ -245,6 +240,32 @@ class MainActivity : AppCompatActivity(){
                 chips_rastreadores(
                 imeichip = "52",
                 imeirastreador = "TesteRas",
+                )
+            )
+        }
+    }
+    private fun criachipsVeiculos(){
+        val db = AppDatabase.instancia(this)
+        val botaoadicionar = findViewById<FloatingActionButton>(R.id.adicionar)
+        botaoadicionar.setOnClickListener{
+            val chipsveiculos = db.funcoesdbdao()
+            chipsveiculos.salvaChipsVeiculos(
+                chips_veiculos(
+                    imeichip = "52",
+                    placaveiculo = "JKL-9093",
+                )
+            )
+        }
+    }
+    private fun criachipsCliente(){
+        val db = AppDatabase.instancia(this)
+        val botaoadicionar = findViewById<FloatingActionButton>(R.id.adicionar)
+        botaoadicionar.setOnClickListener{
+            val chipsrcliente = db.funcoesdbdao()
+            chipsrcliente.salvaChipsClientes(
+                chips_clientes(
+                    imeichip = "52",
+                    cpfcliente = "05396553170",
                 )
             )
         }

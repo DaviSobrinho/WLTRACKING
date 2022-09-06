@@ -9,7 +9,8 @@ import com.example.wltrackingmobile.model.*
 
 
 @Database(entities = [veiculos_clientes::class, rastreadores_veiculos::class,
-    chips_rastreadores::class, clientes::class,
+    chips_rastreadores::class, clientes::class, chips_clientes::class,
+    chips_veiculos::class, rastreadores_clientes::class,
     chips::class, rastreadores::class, veiculos::class],
     version = 2, exportSchema = true)
 abstract class AppDatabase : RoomDatabase(){

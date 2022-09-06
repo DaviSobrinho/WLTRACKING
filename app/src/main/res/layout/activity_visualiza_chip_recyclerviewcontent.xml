@@ -16,7 +16,6 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp">
             <com.google.android.material.textfield.TextInputEditText
-                android:text="IMEI:"
                 android:id="@+id/ActivityVisualizaChipTextInput1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
