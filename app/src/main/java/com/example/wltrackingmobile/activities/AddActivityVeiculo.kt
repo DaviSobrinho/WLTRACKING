@@ -1,14 +1,13 @@
-package com.example.wltrackingmobile
+package com.example.wltrackingmobile.activities
 
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.CalendarView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.wltrackingmobile.R
 import com.example.wltrackingmobile.database.AppDatabase
-import com.example.wltrackingmobile.model.clientes
 import com.example.wltrackingmobile.model.veiculos
 import com.google.android.material.textfield.TextInputEditText
 
@@ -23,6 +22,9 @@ class AddActivityVeiculo : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
     }
     private fun startAddActivities(){
         val activityclientes = findViewById<Button>(R.id.ActivityAddVeiculoButtonClientes)

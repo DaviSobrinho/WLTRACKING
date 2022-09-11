@@ -1,19 +1,24 @@
-package com.example.wltrackingmobile
+package com.example.wltrackingmobile.activities
 
+import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.wltrackingmobile.R
 import com.example.wltrackingmobile.adapters.*
 import com.example.wltrackingmobile.database.AppDatabase
 import com.example.wltrackingmobile.fragments.adapters.AdapterTabPager
-import com.example.wltrackingmobile.model.chips_clientes
 import com.example.wltrackingmobile.model.chips_rastreadores
 import com.example.wltrackingmobile.model.chips_veiculos
+import com.example.wltrackingmobile.model.veiculos_clientes
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -101,7 +106,6 @@ class MainActivity : AppCompatActivity(){
         criachipsCliente()
         //criachipsVeiculos()
         //criachipsrastreador()
-        startAddClienteActivity()
     }
     override fun onResume() {
         super.onResume()
@@ -166,32 +170,10 @@ class MainActivity : AppCompatActivity(){
             }
         }
     }
-    private fun startVisualizaClienteActivity(){
-        val botaovisualizaactivity = findViewById<FloatingActionButton>(R.id.adicionar)
-        botaovisualizaactivity.setOnClickListener{
-            val Key = findViewById<TextInputEditText>(R.id.ActivityMainTextInput)
-            val intent = Intent(this, VisualizaClienteActivity::class.java, )
-            val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
-            intent.putExtra("key", Key.text.toString())
-            startActivity(intent, bundle)
-        }
-    }
-
-    private fun startAddChipActivity(){
-        val botaoinciaaddactivity = findViewById<FloatingActionButton>(R.id.excluir)
-        botaoinciaaddactivity.setOnClickListener{
-            val intent = Intent(this, AddActivityCliente::class.java)
-            val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
-            startActivity(intent, bundle)
-        }
-    }
-    private fun startAddClienteActivity(){
-        val botaoinciaaddactivity = findViewById<FloatingActionButton>(R.id.excluir)
-        botaoinciaaddactivity.setOnClickListener{
-            val intent = Intent(this, AddActivityCliente::class.java)
-            val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
-            startActivity(intent, bundle)
-        }
+    private fun startAnActivity(activity: AppCompatActivity){
+        val intent = Intent(this, activity::class.java)
+        val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+        startActivity(intent, bundle)
     }
     fun configuraRecyclerViewChips() {
         val adapter = activitymainchipsadapter(context = this)
@@ -260,12 +242,39 @@ class MainActivity : AppCompatActivity(){
         val botaoadicionar = findViewById<FloatingActionButton>(R.id.adicionar)
         botaoadicionar.setOnClickListener{
             val chipsrcliente = db.funcoesdbdao()
-            chipsrcliente.salvaChipsClientes(
-                chips_clientes(
-                    imeichip = "",
+            chipsrcliente.salvaVeiculosClientes(
+                veiculos_clientes(
+                    placaveiculo = "",
                     cpfcliente = "2.4",
                 )
             )
+        }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.main, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.menu_adicionar_chip -> {
+                startAnActivity(AddActivityChip())
+                true
+            }
+            R.id.menu_adicionar_cliente -> {
+                startAnActivity(AddActivityCliente())
+                true
+            }
+            R.id.menu_adicionar_veiculo -> {
+                startAnActivity(AddActivityVeiculo())
+                true
+            }
+            R.id.menu_adicionar_rastreador -> {
+                startAnActivity(AddActivityRastreador())
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

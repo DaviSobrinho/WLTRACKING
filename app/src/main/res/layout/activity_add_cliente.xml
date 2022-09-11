@@ -64,6 +64,7 @@
         >
     </Button>
     <ScrollView
+        android:background="#A7B8D4"
         android:layout_marginTop="130dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -9,7 +9,7 @@ import com.example.wltrackingmobile.model.*
 interface funcoesdbdao {
 
 
-    // Funções Chips
+    // Funções Clientes
 
 
     @Query("SELECT * FROM clientes")
@@ -95,7 +95,7 @@ interface funcoesdbdao {
     fun findChipsRastreadoresPorImeiChip(imeichip: String): String?
 
     @Query("SELECT imeichip FROM chips_rastreadores where imeirastreador like :imeirastreador")
-    fun findChipsRastreadoresPorImeiRastreador(imeirastreador: String): String?
+    fun findChipsRastreadoresPorImeiRastreador(imeirastreador: String): List<String>
 
     @Insert
     fun salvaChipsRastreadores(vararg ChipsRastreadores: chips_rastreadores)
@@ -114,7 +114,7 @@ interface funcoesdbdao {
     fun buscaTodosChipsClientes() :List<chips_clientes>
 
     @Query("SELECT cpfcliente FROM chips_clientes where imeichip like :imeichip")
-    fun findChipsClientesporImeiChip(imeichip: String): List<String?>
+    fun findChipsClientesporImeiChip(imeichip: String): String?
 
     @Query("SELECT imeichip FROM chips_clientes where cpfcliente like :cpfcliente")
     fun findChipsClientesPorCpfCliente(cpfcliente: String): List<String>
@@ -139,7 +139,7 @@ interface funcoesdbdao {
     fun findChipsVeiculosporImeiChip(imeichip: String): String?
 
     @Query("SELECT imeichip FROM chips_veiculos where placaveiculo like :placaveiculo")
-    fun findChipsVeiculosPorPlacaVeiculo(placaveiculo: String): String?
+    fun findChipsVeiculosPorPlacaVeiculo(placaveiculo: String): List<String>
 
     @Insert
     fun salvaChipsVeiculos(vararg ChipsVeiculos: chips_veiculos)
@@ -180,7 +180,7 @@ interface funcoesdbdao {
     fun buscaRastreadoresVeiculos() :List<rastreadores_veiculos>
 
     @Query("SELECT imeirastreador FROM rastreadores_veiculos where placaveiculo like :placaveiculo")
-    fun findRastreadoresVeiculosPorPlacaVeiculo(placaveiculo: String): String?
+    fun findRastreadoresVeiculosPorPlacaVeiculo(placaveiculo: String): List<String>
 
     @Query("SELECT placaveiculo FROM rastreadores_veiculos where imeirastreador like :imeirastreador")
     fun findRastreadoresVeiculosPorImeiRastreador(imeirastreador: String): String?

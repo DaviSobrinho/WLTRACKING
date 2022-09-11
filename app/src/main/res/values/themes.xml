@@ -15,8 +15,12 @@
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowEnterTransition">@transition/trans_anim</item>
         <item name="android:windowExitTransition">@transition/trans_anim</item>
+        <item name="android:actionOverflowButtonStyle">@style/Widget.ActionButton.Overflow</item>
     </style>
     <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
         <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Widget.ActionButton.Overflow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_action_add_box</item>
     </style>
 </resources>

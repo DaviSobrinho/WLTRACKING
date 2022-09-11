@@ -1,4 +1,4 @@
-package com.example.wltrackingmobile
+package com.example.wltrackingmobile.activities
 
 import android.app.ActivityOptions
 import android.content.Intent
@@ -8,8 +8,8 @@ import android.widget.CheckBox
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.wltrackingmobile.R
 import com.example.wltrackingmobile.database.AppDatabase
-import com.example.wltrackingmobile.model.chips
 import com.example.wltrackingmobile.model.rastreadores
 import com.google.android.material.textfield.TextInputEditText
 
@@ -21,8 +21,12 @@ class AddActivityRastreador : AppCompatActivity() {
         startAddActivities()
         criaRastreador()
     }
+
     override fun onBackPressed() {
         super.onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
     }
     fun criaRastreador() {
         val db = AppDatabase.instancia(this)
