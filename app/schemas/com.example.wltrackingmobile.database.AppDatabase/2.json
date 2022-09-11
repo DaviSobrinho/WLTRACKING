@@ -1,0 +1,388 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "faf9fec90af87fa821fe5d80024b30f1",
+    "entities": [
+      {
+        "tableName": "veiculos_clientes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`placaveiculo` TEXT NOT NULL, `cpfcliente` TEXT, PRIMARY KEY(`placaveiculo`))",
+        "fields": [
+          {
+            "fieldPath": "placaveiculo",
+            "columnName": "placaveiculo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cpfcliente",
+            "columnName": "cpfcliente",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "placaveiculo"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "rastreadores_veiculos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`imeirastreador` TEXT NOT NULL, `placaveiculo` TEXT, PRIMARY KEY(`imeirastreador`))",
+        "fields": [
+          {
+            "fieldPath": "imeirastreador",
+            "columnName": "imeirastreador",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "placaveiculo",
+            "columnName": "placaveiculo",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "imeirastreador"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "chips_rastreadores",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`imeichip` TEXT NOT NULL, `imeirastreador` TEXT, PRIMARY KEY(`imeichip`))",
+        "fields": [
+          {
+            "fieldPath": "imeichip",
+            "columnName": "imeichip",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imeirastreador",
+            "columnName": "imeirastreador",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "imeichip"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "clientes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cpf` TEXT NOT NULL, `id` INTEGER NOT NULL, `nome` TEXT NOT NULL, `data` TEXT NOT NULL, `valor` TEXT NOT NULL, `contrato` TEXT NOT NULL, `telefone` TEXT NOT NULL, `notas` TEXT NOT NULL, PRIMARY KEY(`cpf`))",
+        "fields": [
+          {
+            "fieldPath": "cpf",
+            "columnName": "cpf",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nome",
+            "columnName": "nome",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "data",
+            "columnName": "data",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valor",
+            "columnName": "valor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contrato",
+            "columnName": "contrato",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "telefone",
+            "columnName": "telefone",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notas",
+            "columnName": "notas",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "cpf"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "chips_clientes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`imeichip` TEXT NOT NULL, `cpfcliente` TEXT, PRIMARY KEY(`imeichip`))",
+        "fields": [
+          {
+            "fieldPath": "imeichip",
+            "columnName": "imeichip",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cpfcliente",
+            "columnName": "cpfcliente",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "imeichip"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "chips_veiculos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`imeichip` TEXT NOT NULL, `placaveiculo` TEXT, PRIMARY KEY(`imeichip`))",
+        "fields": [
+          {
+            "fieldPath": "imeichip",
+            "columnName": "imeichip",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "placaveiculo",
+            "columnName": "placaveiculo",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "imeichip"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "rastreadores_clientes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`imeirastreador` TEXT NOT NULL, `cpfcliente` TEXT, PRIMARY KEY(`imeirastreador`))",
+        "fields": [
+          {
+            "fieldPath": "imeirastreador",
+            "columnName": "imeirastreador",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cpfcliente",
+            "columnName": "cpfcliente",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "imeirastreador"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "chips",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`imei` TEXT NOT NULL, `id` INTEGER NOT NULL, `estado` TEXT NOT NULL, `modelo` TEXT NOT NULL, `telefone` TEXT NOT NULL, `custo` TEXT NOT NULL, `dia` TEXT NOT NULL, `notas` TEXT NOT NULL, PRIMARY KEY(`imei`))",
+        "fields": [
+          {
+            "fieldPath": "imei",
+            "columnName": "imei",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modelo",
+            "columnName": "modelo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "telefone",
+            "columnName": "telefone",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "custo",
+            "columnName": "custo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dia",
+            "columnName": "dia",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notas",
+            "columnName": "notas",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "imei"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "rastreadores",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`imei` TEXT NOT NULL, `id` INTEGER NOT NULL, `modelo` TEXT NOT NULL, `estado` TEXT NOT NULL, `local` TEXT NOT NULL, `notas` TEXT NOT NULL, PRIMARY KEY(`imei`))",
+        "fields": [
+          {
+            "fieldPath": "imei",
+            "columnName": "imei",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modelo",
+            "columnName": "modelo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "local",
+            "columnName": "local",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notas",
+            "columnName": "notas",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "imei"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "veiculos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`placa` TEXT NOT NULL, `id` INTEGER NOT NULL, `modelo` TEXT NOT NULL, `ano` TEXT NOT NULL, `notas` TEXT NOT NULL, PRIMARY KEY(`placa`))",
+        "fields": [
+          {
+            "fieldPath": "placa",
+            "columnName": "placa",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modelo",
+            "columnName": "modelo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ano",
+            "columnName": "ano",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notas",
+            "columnName": "notas",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "placa"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'faf9fec90af87fa821fe5d80024b30f1')"
+    ]
+  }
+}
