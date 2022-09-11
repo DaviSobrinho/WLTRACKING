@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity(){
         val tabLayout = findViewById<TabLayout>(R.id.ActivityMainTabLayout)
         val viewPager2 = findViewById<ViewPager2>(R.id.ActivityMainViewPager)
         val adapter = AdapterTabPager(supportFragmentManager, lifecycle)
-//        criachipsrastreador()
         viewPager2.adapter = adapter
         TabLayoutMediator(tabLayout, viewPager2){ tab, position->
             when(position){
@@ -100,14 +99,13 @@ class MainActivity : AppCompatActivity(){
             }
         })
         criachipsCliente()
-        criachipsVeiculos()
-        criachipsrastreador()
+        //criachipsVeiculos()
+        //criachipsrastreador()
         startAddClienteActivity()
     }
     override fun onResume() {
         super.onResume()
     }
-
     private fun configuraPesquisaCliente(){
         findViewById<TextInputEditText>(R.id.ActivityMainTextInput).setOnEditorActionListener { v, actionId, event ->
             return@setOnEditorActionListener when (actionId) {
@@ -264,11 +262,10 @@ class MainActivity : AppCompatActivity(){
             val chipsrcliente = db.funcoesdbdao()
             chipsrcliente.salvaChipsClientes(
                 chips_clientes(
-                    imeichip = "52",
-                    cpfcliente = "05396553170",
+                    imeichip = "",
+                    cpfcliente = "2.4",
                 )
             )
         }
     }
-
 }

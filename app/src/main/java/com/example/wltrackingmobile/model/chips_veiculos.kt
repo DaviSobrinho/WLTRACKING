@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 class chips_veiculos(
-    @PrimaryKey @ColumnInfo(name = "imeichip") val imeichip: String,
-    @ColumnInfo(name ="placaveiculo") val placaveiculo: String?,
+    @PrimaryKey @ColumnInfo(name ="placaveiculo") val placaveiculo: String,
+    @ColumnInfo(name = "imeichip") val imeichip: String?,
 )

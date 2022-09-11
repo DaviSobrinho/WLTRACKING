@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 class rastreadores_clientes (
-    @PrimaryKey @ColumnInfo(name = "imeirastreador") val imeirastreador: String,
-    @ColumnInfo(name ="cpfcliente") val cpfcliente: String?,
+    @PrimaryKey @ColumnInfo(name ="cpfcliente") val cpfcliente: String,
+    @ColumnInfo(name = "imeirastreador") val imeirastreador: String?,
 )

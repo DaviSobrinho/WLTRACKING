@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 class veiculos_clientes (
-    @PrimaryKey @ColumnInfo(name = "placaveiculo") val placaveiculo: String,
-    @ColumnInfo(name ="cpfcliente") val cpfcliente: String?,
+    @PrimaryKey @ColumnInfo(name ="cpfcliente") val cpfcliente: String,
+    @ColumnInfo(name = "placaveiculo") val placaveiculo: String?,
 )

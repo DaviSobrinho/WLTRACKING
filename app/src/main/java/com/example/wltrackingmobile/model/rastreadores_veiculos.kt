@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 class rastreadores_veiculos(
-    @PrimaryKey @ColumnInfo(name = "imeirastreador") val imeirastreador: String,
-    @ColumnInfo(name ="placaveiculo") val placaveiculo: String?,
+    @PrimaryKey @ColumnInfo(name ="placaveiculo") val placaveiculo: String,
+    @ColumnInfo(name = "imeirastreador") val imeirastreador: String?,
 )

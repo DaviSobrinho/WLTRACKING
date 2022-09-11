@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 class chips_clientes(
-    @PrimaryKey @ColumnInfo(name = "imeichip") val imeichip: String,
-    @ColumnInfo(name ="cpfcliente") val cpfcliente: String?,
+    @ColumnInfo(name = "imeichip") val imeichip: String?,
+    @PrimaryKey @ColumnInfo(name ="cpfcliente") val cpfcliente: String,
 )

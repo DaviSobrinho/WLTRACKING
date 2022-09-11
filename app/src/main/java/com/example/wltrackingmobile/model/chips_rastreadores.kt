@@ -7,6 +7,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 class chips_rastreadores(
-    @PrimaryKey @ColumnInfo(name = "imeichip") val imeichip: String,
-    @ColumnInfo(name ="imeirastreador") val imeirastreador: String?,
+    @PrimaryKey @ColumnInfo(name ="imeirastreador") val imeirastreador: String,
+    @ColumnInfo(name = "imeichip") val imeichip: String?,
 )

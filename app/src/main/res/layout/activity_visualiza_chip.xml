@@ -15,7 +15,6 @@
             android:layout_height="210dp"
             android:orientation="vertical"
             android:layout_weight="30">
-
             <ImageView
                 android:id="@+id/ActivityVisualizaChipImage"
                 android:layout_width="fill_parent"
@@ -28,8 +27,7 @@
                 app:srcCompat="@drawable/ic_action_chip"
                 app:tint="@color/white"
                 android:background="@color/purple_500"
-                android:padding="10dp"
-                android:clickable="true"/>
+                android:padding="10dp"/>
 
             <TextView
                 android:id="@+id/ActivityVisualizaChipTextView"

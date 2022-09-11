@@ -114,10 +114,10 @@ interface funcoesdbdao {
     fun buscaTodosChipsClientes() :List<chips_clientes>
 
     @Query("SELECT cpfcliente FROM chips_clientes where imeichip like :imeichip")
-    fun findChipsClientesporImeiChip(imeichip: String): String?
+    fun findChipsClientesporImeiChip(imeichip: String): List<String?>
 
     @Query("SELECT imeichip FROM chips_clientes where cpfcliente like :cpfcliente")
-    fun findChipsClientesPorCpfCliente(cpfcliente: String): String?
+    fun findChipsClientesPorCpfCliente(cpfcliente: String): List<String>
 
     @Insert
     fun salvaChipsClientes(vararg ChipsClientes: chips_clientes)
@@ -161,7 +161,7 @@ interface funcoesdbdao {
     fun findRastreadoresClientesporImeiRastreador(imeirastreador: String): String?
 
     @Query("SELECT imeirastreador FROM rastreadores_clientes where cpfcliente like :cpfcliente")
-    fun findRastreadoresClientesPorCpfCliente(cpfcliente: String): String?
+    fun findRastreadoresClientesPorCpfCliente(cpfcliente: String): List<String>
 
     @Insert
     fun salvaRastreadoresClientes(vararg RastreadoresClientes: rastreadores_clientes)
@@ -205,7 +205,7 @@ interface funcoesdbdao {
     fun findVeiculosClientesPorPlacaVeiculo(placaveiculo: String): String?
 
     @Query("SELECT placaveiculo FROM veiculos_clientes where cpfcliente like :cpfcliente")
-    fun findVeiculosClientesPorCpfCliente(cpfcliente: String): String?
+    fun findVeiculosClientesPorCpfCliente(cpfcliente: String): List<String>
 
     @Insert
     fun salvaVeiculosClientes(vararg VeiculosClientes: veiculos_clientes)
